@@ -10,11 +10,14 @@
        
     </head>
     <body >
-        <h1>hello world</h1>
-
-        <a href="/posts/my-first-post">read first post</a><br>
-        <a href="/posts/my-second-post">read second post</a><br>
-        <a href="/posts/my-third-post">read third post</a>
+        <?php foreach($posts as $post)
+        {?>
+            <a href="/posts/<?=$post->slug?>"> <?=$post->title?> </a>
+            <h3><?=$post->excerpt?></h3>
+            <br><hr>
+        <?php }?>
+        <br>
+        
         
     </body>
 </html>
