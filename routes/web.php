@@ -20,7 +20,7 @@ Route::get('/', function () {
     // \Illuminate\Support\Facades\DB::listen(function ($query){
     //     logger($query->sql);
     // });
-    return view('posts', ['posts' => Post::with('category')->get()]);
+    return view('posts', ['posts' => Post::latest('published_at')->with('category')->get()]);
 });
 
 Route::get('/posts/{post:slug}', function (Post $post) {
